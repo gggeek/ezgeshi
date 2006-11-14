@@ -1,35 +1,18 @@
 <?php
 /*************************************************************************************
- * c.php
- * -----
- * Author: Nigel McNie (oracle.shinoda@gmail.com)
- * Contributors:
- *  - Jack Lloyd (lloyd@randombit.net)
- * Copyright: (c) 2004 Nigel McNie (http://qbnz.com/highlighter/)
- * Release Version: 1.0.7.15
- * CVS Revision Version: $Revision: 1.13.2.4 $
- * Date Started: 2004/06/04
- * Last Modified: $Date: 2006/09/23 02:05:46 $
- *
- * C language file for GeSHi.
- *
- * CHANGES
+ * idl.php
  * -------
- * 2004/XX/XX (1.0.4)
- *   -  Added a couple of new keywords (Jack Lloyd)
- * 2004/11/27 (1.0.3)
- *   -  Added support for multiple object splitters
- * 2004/10/27 (1.0.2)
- *   -  Added support for URLs
- * 2004/08/05 (1.0.1)
- *   -  Added support for symbols
- * 2004/07/14 (1.0.0)
- *   -  First Release
+ * Author: Cedric Bosdonnat (cedricbosdo@openoffice.org)
+ * Copyright: (c) 2006 Cedric Bosdonnat
+ * Release Version: 1.0.7.15
+ * CVS Revision Version: $Revision: 1.1.2.3 $
+ * Date Started: 2006/08/20
+ * Last Modified: $Date: 2006/09/23 02:05:47 $
  *
- * TODO (updated 2004/11/27)
- * -------------------------
- *  -  Get a list of inbuilt functions to add (and explore C more
- *     to complete this rather bare language file
+ * Unoidl language file for GeSHi.
+ *
+ * 2006/08/20 (1.0.0)
+ *  -  First Release
  *
  *************************************************************************************
  *
@@ -51,8 +34,9 @@
  *
  ************************************************************************************/
 
+
 $language_data = array (
-	'LANG_NAME' => 'C',
+	'LANG_NAME' => 'Uno Idl',
 	'COMMENT_SINGLE' => array(1 => '//', 2 => '#'),
 	'COMMENT_MULTI' => array('/*' => '*/'),
 	'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
@@ -60,58 +44,56 @@ $language_data = array (
 	'ESCAPE_CHAR' => '\\',
 	'KEYWORDS' => array(
 		1 => array(
-			'if', 'return', 'while', 'case', 'continue', 'default',
-			'do', 'else', 'for', 'switch', 'goto'
+			'published', 'get', 'set', 'service', 'singleton', 'type', 'module', 'interface', 'struct',
+			'const', 'constants', 'exception', 'enum', 'raises', 'typedef'
 			),
 		2 => array(
-			'null', 'false', 'break', 'true', 'function', 'enum', 'extern', 'inline'
-			),
+            'bound', 'maybeambiguous', 'maybedefault', 'maybevoid', 'oneway', 'optional',
+            'readonly', 'in', 'out', 'inout', 'attribute', 'transient', 'removable'
+          	),
 		3 => array(
-			'printf', 'cout'
-			),
+			'True', 'False', 'TRUE', 'FALSE'
+            ),
 		4 => array(
-			'auto', 'char', 'const', 'double',  'float', 'int', 'long',
-			'register', 'short', 'signed', 'sizeof', 'static', 'string', 'struct',
-			'typedef', 'union', 'unsigned', 'void', 'volatile', 'wchar_t'
-			),
+		    'string', 'long', 'byte', 'hyper', 'boolean', 'any', 'char', 'double', 'long', 
+            'void', 'sequence', 'unsigned', '...'
+            ),
 		),
 	'SYMBOLS' => array(
-		'(', ')', '{', '}', '[', ']', '=', '+', '-', '*', '/', '!', '%', '^', '&', ':'
+        '(', ')', '{', '}', '[', ']', '=', '+', '-', '*', '/', '!', '%', '^', '&', ':', ';'
 		),
 	'CASE_SENSITIVE' => array(
 		GESHI_COMMENTS => true,
-		1 => false,
-		2 => false,
-		3 => false,
-		4 => false,
+		1 => true,
+		2 => true,
+		3 => true,
+		4 => true,
 		),
 	'STYLES' => array(
 		'KEYWORDS' => array(
-			1 => 'color: #b1b100;',
-			2 => 'color: #000000; font-weight: bold;',
-			3 => 'color: #000066;',
-			4 => 'color: #993333;'
+			1 => 'color: #990078; font-weight: bold',
+			2 => 'color: #36dd1c;',
+			3 => 'color: #990078; font-weight: bold',
+			4 => 'color: #0000ec;'
 			),
 		'COMMENTS' => array(
-			1 => 'color: #808080; font-style: italic;',
-			2 => 'color: #339933;',
-			'MULTI' => 'color: #808080; font-style: italic;'
+			1 => 'color: #3f7f5f;',
+			2 => 'color: #808080;',
+			'MULTI' => 'color: #4080ff; font-style: italic;'
 			),
 		'ESCAPE_CHAR' => array(
-			0 => 'color: #000099; font-weight: bold;'
+			0 => 'color: #666666; font-weight: bold;'
 			),
 		'BRACKETS' => array(
-			0 => 'color: #66cc66;'
+			0 => 'color: #808080;'
 			),
 		'STRINGS' => array(
 			0 => 'color: #ff0000;'
 			),
 		'NUMBERS' => array(
-			0 => 'color: #cc66cc;'
+			0 => 'color: #0000dd;'
 			),
 		'METHODS' => array(
-			1 => 'color: #202020;',
-			2 => 'color: #202020;'
 			),
 		'SYMBOLS' => array(
 			0 => 'color: #66cc66;'
@@ -122,15 +104,10 @@ $language_data = array (
 			)
 		),
 	'URLS' => array(
-		1 => '',
-		2 => '',
-		3 => 'http://www.opengroup.org/onlinepubs/009695399/functions/{FNAME}.html',
-		4 => ''
 		),
-	'OOLANG' => true,
+	'OOLANG' => false,
 	'OBJECT_SPLITTERS' => array(
-		1 => '.',
-		2 => '::'
+		1 => '::'
 		),
 	'REGEXPS' => array(
 		),
