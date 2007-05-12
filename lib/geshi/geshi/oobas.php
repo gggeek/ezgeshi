@@ -4,10 +4,8 @@
  * ---------
  * Author: Roberto Rossi (rsoftware@altervista.org)
  * Copyright: (c) 2004 Roberto Rossi (http://rsoftware.altervista.org), Nigel McNie (http://qbnz.com/highlighter)
- * Release Version: 1.0.7.16
- * CVS Revision Version: $Revision: 1.13.2.5 $
+ * Release Version: 1.0.7.19
  * Date Started: 2004/08/30
- * Last Modified: $Date: 2006/10/24 11:07:09 $
  *
  * OpenOffice.org Basic language file for GeSHi.
  *

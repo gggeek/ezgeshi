@@ -4,10 +4,8 @@
  * ----------
  * Author: Tux (tux@inamil.cz)
  * Copyright: (c) 2004 Tux (http://tux.a4.cz/), Nigel McNie (http://qbnz.com/highlighter)
- * Release Version: 1.0.7.16
- * CVS Revision Version: $Revision: 1.13.2.5 $
+ * Release Version: 1.0.7.19
  * Date Started: 2004/07/26
- * Last Modified: $Date: 2006/10/24 11:07:10 $
  *
  * Pascal language file for GeSHi.
  *

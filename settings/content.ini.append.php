@@ -60,6 +60,7 @@ AvailableClasses[]=php-brief
 AvailableClasses[]=plsql
 AvailableClasses[]=python
 AvailableClasses[]=qbasic
+AvailableClasses[]=rails
 AvailableClasses[]=reg
 AvailableClasses[]=robots
 AvailableClasses[]=ruby
@@ -79,5 +80,7 @@ AvailableClasses[]=vhdl
 AvailableClasses[]=visualfoxpro
 AvailableClasses[]=winbatch
 AvailableClasses[]=xml
+AvailableClasses[]=xpp
+AvailableClasses[]=z80
 
 */ ?>

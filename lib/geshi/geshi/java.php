@@ -4,10 +4,8 @@
  * --------
  * Author: Nigel McNie (nigel@geshi.org)
  * Copyright: (c) 2004 Nigel McNie (http://qbnz.com/highlighter/)
- * Release Version: 1.0.7.16
- * CVS Revision Version: $Revision: 1.19.2.7 $
+ * Release Version: 1.0.7.19
  * Date Started: 2004/07/10
- * Last Modified: $Date: 2006/10/29 11:08:58 $
  *
  * Java language file for GeSHi.
  *
