@@ -3,9 +3,10 @@
  * eztemplate.php
  * ----------
  * Author: Jan Borsodi (jb@ez.no)
+ * Author: G Giunta (gg@ez.no)
  * Copyright: (c) 2005 Jan Borsodi
- * Release Version: 1.0.0
- * CVS Revision Version: $Revision: 1.1 $
+ * Release Version: 1.2.0
+ * SVN Revision Version: $Id: $
  * Date Started: 2005/17/01
  * Last Modified: $Date: 2005/17/01 10:14:00 $
  *
@@ -13,6 +14,10 @@
  *
  * CHANGES
  * -------
+ * 2008/02/23 (1.2.0)
+ *  -  Modified links to help pages
+ *  -  shrank keywords to 3 classes, as in the eZ Publish 4 online docs. Took keywords from there
+ *  -  changed color schema to match the default php color schema (as highlighted by php self)
  * 2004/11/27 (1.0.0)
  *  -  Initial Release
  *
@@ -29,183 +34,284 @@ $language_data = array (
 	'QUOTEMARKS' => array("'", '"'),
 	'ESCAPE_CHAR' => '\\',
 	'KEYWORDS' => array(
-		1 => array(
-            'lt', 'gt', 'le',
-            'ge', 'eq', 'ne', 'null',
-            'not', 'true', 'false',
-            'or', 'and', 'choose',
-            'is_array', 'is_boolean', 'is_integer',
-            'is_float', 'is_numeric', 'is_string',
-            'is_object', 'is_class', 'is_null',
-            'is_set', 'is_unset', 'get_type', 'get_class',
-            'cond', 'first_set',
-            'sum', 'sub', 'inc', 'dec',
-            'div', 'mod', 'mul',
-            'max', 'min',
-            'abs', 'ceil', 'floor', 'round',
-            'int', 'float',
-            'count',
-			),
-        2 => array(
-            'xhtml'
-            ),
-		3 => array(
-			'section', 'section-else', 'section-exclude', 'section-include', 'delimiter',
-            'switch', 'case', 'include', 'sequence', 'ldelim', 'rdelim',
-			'let', 'set', 'default', 'set-block', 'append-block', 'run-once', 'cache-block', 'tool_bar', 'menu',
-			'debug-timing-point', 'debug-accumulator', 'debug-trace', 'is_cached', 'from', 'item',
-            'attribute_edit_gui', 'attribute_view_gui', 'attribute_result_gui',
-            'attribute_pdf_gui', 'related_view_gui', 'node_view_gui',
-            'content_view_gui', 'content_pdf_gui', 'shop_account_view_gui',
-            'content_version_view_gui', 'collaboration_view_gui', 'collaboration_icon',
-            'collaboration_simple_message_view', 'collaboration_participation_view',
-            'event_edit_gui', 'event_view_gui','class_attribute_view_gui',
-            'class_attribute_edit_gui'
-			),
-		4 => array(
-            'array', 'hash', 'array_prepend', 'prepend',
-            'array_append', 'append', 'array_merge', 'merge',
-            'contains', 'compare', 'extract', 'extract_left', 'extract_right',
-            'begins_with', 'ends_with', 'implode', 'explode',
-            'repeat', 'reverse', 'insert', 'remove', 'replace',
-            'unique', 'array_sum',
-            'attribute', 'nl2br', 'concat', 'indent', 'si',
-            'upcase',
-            'downcase',
-            'count_words',
-            'count_chars',
-            'trim',
-            'break',
-            'wrap',
-            'upfirst',
-            'upword',
-            'simplify',
-            'trim',
-            'wash',
-            'chr',
-            'ord',
-            'shorten',
-            'pad',
-            'crc32',
-            'md5',
-            'rot13',
-            'roman',
-// 			'assign', 'counter', 'cycle', 'debug', 'eval', 'fetch', 'html_checkboxes', 'html_image', 'html_options',
-// 			'html_radios', 'html_select_date', 'html_select_time', 'html_table', 'math', 'mailto', 'popup_init',
-// 			'popup', 'textformat'
-			),
-		5 => array(
-            'fetch', 'fetch_alias',
-            'l10n', 'locale', 'datetime', 'currentdate', 'maketime', 'makedate', 'gettime',
-            'texttoimage', 'image', 'imagefile',
+    	// @todo inc symbol must go after include: shuffle groups?
+    	// the same is valid for mod and module_params, etc...
 
-            'ezurl', 'ezroot', 'ezdesign', 'ezimage', 'exturl',
-            'ezsys', 'ezhttp', 'ezini',
-            'i18n', 'x18n',
-            'month_overview',
-            'autolink',
-            'simpletags',
-            'treemenu',
-            'content_structure_tree',
-            'wordtoimage',
-            'mimetype_icon', 'class_icon', 'classgroup_icon', 'action_icon', 'icon',
-            'flag_icon', 'icon_info',
-            'ezpreference',
-            'module_params',
-            'topmenu',
-            'ezpackage'
-// 			'$template_dir', '$compile_dir', '$config_dir', '$plugins_dir', '$debugging', '$debug_tpl',
-// 			'$debugging_ctrl', '$autoload_filters', '$compile_check', '$force_compile', '$caching', '$cache_dir',
-// 			'$cache_lifetime', '$cache_handler_func', '$cache_modified_check', '$config_overwrite',
-// 			'$config_booleanize', '$config_read_hidden', '$config_fix_newlines', '$default_template_handler_func',
-// 			'$php_handling', '$security', '$secure_dir', '$security_settings', '$trusted_dir', '$left_delimiter',
-// 			'$right_delimiter', '$compiler_class', '$request_vars_order', '$request_use_auto_globals',
-// 			'$error_reporting', '$compile_id', '$use_sub_dirs', '$default_modifiers', '$default_resource_type'
+    	// Operators
+		1 => array(
+'append',
+'array',
+'array_sum',
+'begins_with',
+'compare',
+'contains',
+'ends_with',
+'explode',
+'extract',
+'extract_left',
+'extract_right',
+'hash',
+'implode',
+'insert',
+'merge',
+'prepend',
+'remove',
+'repeat',
+'reverse',
+'unique',
+'currentdate',
+'ezhttp',
+'ezhttp_hasvariable',
+'ezini',
+'ezini_hasvariable',
+'ezmodule',
+'ezpreference',
+'ezsys',
+'fetch',
+'module_params',
+
+'datetime',
+'i18n',
+'l10n',
+'si',
+
+'image',
+'imagefile',
+'texttoimage',
+
+'and',
+'choose',
+'cond',
+'eq',
+'false',
+'first_set',
+'ge',
+'gt',
+'le',
+'lt',
+'ne',
+'not',
+'null',
+'or',
+'true',
+
+'abs',
+'ceil',
+'dec',
+'div',
+'floor',
+'inc',
+'max',
+'min',
+'mod',
+'mul',
+'rand',
+'round',
+'sub',
+'sum',
+
+'action_icon',
+'attribute',
+'classgroup_icon',
+'class_icon',
+'content_structure_tree',
+'ezpackage',
+'flag_icon',
+'gettime',
+'icon_info',
+'makedate',
+'maketime',
+'mimetype_icon',
+'month_overview',
+'pdf',
+'roman',
+'topmenu',
+'treemenu',
+
+
+'append',
+'autolink',
+'begins_with',
+'break',
+'chr',
+'compare',
+'concat',
+'contains',
+'count_chars',
+'count_words',
+'crc32',
+'downcase',
+'ends_with',
+'explode',
+'extract',
+'extract_left',
+'extract_right',
+'indent',
+'insert',
+'md5',
+'nl2br',
+'ord',
+'pad',
+'prepend',
+'remove',
+'repeat',
+'reverse',
+'rot13',
+'shorten',
+'simpletags',
+'simplify',
+'trim',
+'upcase',
+'upfirst',
+'upword',
+'wash',
+'wordtoimage',
+'wrap',
+
+'exturl',
+'ezdesign',
+'ezimage',
+'ezroot',
+'ezurl',
+
+'count',
+'float',
+'get_class',
+'get_type',
+'int',
+'is_array',
+'is_boolean',
+'is_class',
+'is_float',
+'is_integer',
+'is_null',
+'is_numeric',
+'is_object',
+'is_set',
+'is_string',
+'is_unset',
 			),
-		6 => array(
-// 			'append', 'append_by_ref', 'assign', 'assign_by_ref', 'clear_all_assign', 'clear_all_cache',
-// 			'clear_assign', 'clear_cache', 'clear_compiled_tpl', 'clear_config', 'config_load', 'display',
-// 			'fetch', 'get_config_vars', 'get_registered_object', 'get_template_vars', 'is_cached',
-// 			'load_filter', 'register_block', 'register_compiler_function', 'register_function',
-// 			'register_modifier', 'register_object', 'register_outputfilter', 'register_postfilter',
-// 			'register_prefilter', 'register_resource', 'trigger_error', 'template_exists', 'unregister_block',
-// 			'unregister_compiler_function', 'unregister_function', 'unregister_modifier', 'unregister_object',
-// 			'unregister_outputfilter', 'unregister_postfilter', 'unregister_prefilter', 'unregister_resource'
-			),
-		7 => array(
-// 			'name', 'assign', 'file', 'scope', 'global', 'key', 'once', 'script',
-// 			'loop', 'start', 'step', 'max', 'show', 'values', 'value'
-			),
-		8 => array(
-// 			'eq', 'neq', 'ne', 'lte', 'gte', 'ge', 'le', 'not', 'mod'
+		// Functions
+        2 => array(
+'debug-accumulator',
+'debug-timing-point',
+'debug-trace',
+
+'cache-block',
+'fetch_alias',
+'include',
+'ldelim',
+'literal',
+'rdelim',
+'run-once',
+
+'append-block',
+'def',
+'default',
+'let',
+'sequence',
+'set',
+'set-block',
+'undef',
+
+'attribute_edit_gui',
+'attribute_pdf_gui',
+'attribute_result_gui',
+'attribute_view_gui',
+'class_attribute_edit_gui',
+'class_attribute_view_gui',
+'collaboration_icon',
+'collaboration_participation_view',
+'collaboration_simple_message_view',
+'collaboration_view_gui',
+'content_pdf_gui',
+'content_version_view_gui',
+'content_view_gui',
+'event_edit_gui',
+'node_view_gui',
+'related_view_gui',
+'shop_account_view_gui',
+'tool_bar',
+
+'delimiter' // outside of docs, but still in use
+            ),
+        // Control structures
+		3 => array(
+//Conditional control
+'if',
+'switch',
+//Looping
+'do',
+'for',
+'foreach',
+'while',
+//Deprecated
+'section',
 			),
 		),
 	'SYMBOLS' => array(
-/*		'/', '=', '==', '!=', '>', '<', '>=', '<=', '!', '%'*/
-        '|'
+		'|', '(', '[', ')', ']', '=', '/'
 		),
 	'CASE_SENSITIVE' => array(
 		GESHI_COMMENTS => false,
 		1 => false,
 		2 => false,
 		3 => false,
-		4 => false,
-		5 => false,
-		6 => false,
-		7 => false,
 		),
 	'STYLES' => array(
 		'KEYWORDS' => array(
-			1 => 'color: #0600FF;',		//Functions
-			2 => 'color: #008000;',		//Modifiers
-			3 => 'color: #0600FF;',		//Custom Functions
-			4 => 'color: #804040;',		//Variables
-			5 => 'color: #008000;',		//Methods
-			6 => 'color: #6A0A0A;',		//Attributes
-			7 => 'color: #D36900;'		//Text-based symbols
+			1 => 'color: #0600FF;',		//Operators
+			2 => 'color: #0600FF;',		//Functions
+			3 => 'color: #0600FF;',		//Control structures
 			),
 		'COMMENTS' => array(
-			'MULTI' => 'color: #008080; font-style: italic;'
+			'MULTI' => 'color: #808080; font-style: italic;',
 			),
 		'ESCAPE_CHAR' => array(
-			0 => 'color: #000099; font-weight: bold;'
+			0 => 'color: #ff8800;'
 			),
 		'BRACKETS' => array(
-			0 => 'color: #D36900;'
+			0 => 'color: #66cc66;'
 			),
 		'STRINGS' => array(
-			0 => 'color: #ff0000;'
+			0 => 'color: #dd0000;'
 			),
 		'NUMBERS' => array(
 			0 => 'color: #cc66cc;'
 			),
 		'METHODS' => array(
-			1 => 'color: #006600;'
+			1 => 'color: #006600;',
 			),
 		'SYMBOLS' => array(
-			0 => 'color: #D36900;'
+			0 => 'color: #66cc66;'
 			),
 		'SCRIPT' => array(
+			0 => ''
 			),
 		'REGEXPS' => array(
+			0 => 'color: #0000bb;',
+			1 => 'color: #007700;'
 			)
 		),
 	'URLS' => array(
-		1 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchSectionID=5',
-		2 => '',
-		3 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchSectionID=5',
-		4 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchSectionID=5',
-		5 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchSectionID=5',
-		6 => '',
-		7 => ''
+		1 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=31',
+		2 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=34',
+		3 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=23',
 		),
 	'OOLANG' => true,
 	'OBJECT_SPLITTERS' => array(
 		1 => '.'
 		),
 	'REGEXPS' => array(
-		0 => "[$][a-zA-Z_][a-zA-Z0-9_]*",
-		1 => "[a-zA-Z_][a-zA-Z0-9_]*=",
+		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:]*", // variables (todo: there should be at most one colon)
+		1 => "[a-zA-Z_][a-zA-Z0-9_]*=", // function parameters names OR variables in let
+		1 => array(
+            GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*)=",
+            GESHI_REPLACE => '\1',
+            GESHI_BEFORE => '',
+            GESHI_AFTER => '=',
+            GESHI_MODIFIERS => ''
+            )
 		),
 	'STRICT_MODE_APPLIES' => GESHI_ALWAYS,
 	'SCRIPT_DELIMITERS' => array(
