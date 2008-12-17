@@ -44,7 +44,7 @@
  ************************************************************************************/
 
 $language_data = array (
-	'LANG_NAME' => 'INI',
+	'LANG_NAME' => 'eZ Publish ini',
 	'COMMENT_SINGLE' => array(0 => '#'),
 	'COMMENT_MULTI' => array(),
 	'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
