@@ -44,7 +44,9 @@ while ( false !== ( $file = readdir( $handle ) ) )
     $languageFilePath = $languageDirPath . '/' . $file;
 
     $language_data = array();
+    ob_start();
     include( $languageFilePath );
+    ob_end_clean();
     if ( isset( $language_data['LANG_NAME'] ) )
     {
         $langIdentifier = basename( $file, '.php' );
