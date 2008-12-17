@@ -1,11 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-include_once( 'kernel/classes/ezscript.php' );
-include_once( 'lib/ezutils/classes/ezcli.php' );
+require 'autoload.php';
+
+//include_once( 'kernel/classes/ezscript.php' );
+//include_once( 'lib/ezutils/classes/ezcli.php' );
 include_once( 'extension/ezsh/lib/geshi/geshi.php' );
 
-$cli =& eZCLI::instance();
+$cli = eZCLI::instance();
 
 $scriptSettings = array();
 $scriptSettings['description'] = 'Generate content settings from the GeSHi language files';
@@ -13,7 +15,7 @@ $scriptSettings['use-session'] = true;
 $scriptSettings['use-modules'] = true;
 $scriptSettings['use-extensions'] = true;
 
-$script =& eZScript::instance( $scriptSettings );
+$script = eZScript::instance( $scriptSettings );
 $script->startup();
 
 $config = '';
