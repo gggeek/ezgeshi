@@ -1,0 +1,5 @@
+With this extension you can highlight the syntax of all common languages including PHP, C, CPP, Java, CSS, XHTML and more, including eZ own .tpl and .ini files.
+
+It is a port of the "eZ Syntax Highlighter" extension originally written by Lukasz Serwatka, updated to the latest eZ Publish and Geshi versions.
+
+It includes geshi files for eZ own .tpl and .ini syntaxes, that can be used in other applications outside of eZ Publish.
