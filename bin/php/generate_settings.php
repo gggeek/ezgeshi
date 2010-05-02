@@ -9,11 +9,11 @@ include_once( 'extension/ezsh/lib/geshi/geshi.php' );
 
 $cli = eZCLI::instance();
 
-$scriptSettings = array();
-$scriptSettings['description'] = 'Generate content settings from the GeSHi language files';
-$scriptSettings['use-session'] = true;
-$scriptSettings['use-modules'] = true;
-$scriptSettings['use-extensions'] = true;
+$scriptSettings = array(
+    'description' => 'Generate content settings from the GeSHi language files',
+    'use-session' => false,
+    'use-modules' => false,
+    'use-extensions' => true );
 
 $script = eZScript::instance( $scriptSettings );
 $script->startup();
