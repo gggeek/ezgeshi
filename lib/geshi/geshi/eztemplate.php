@@ -373,14 +373,18 @@ $language_data = array (
             GESHI_MODIFIERS => ''
             )
 		),
-	'STRICT_MODE_APPLIES' => GESHI_ALWAYS,
+	'STRICT_MODE_APPLIES' => GESHI_MAYBE,
 	'SCRIPT_DELIMITERS' => array(
-		0 => array(
+	    0 => array(
+			'{literal}' => '{/literal}'
+			),
+		1 => array(
 			'{' => '}'
 			)
 	),
 	'HIGHLIGHT_STRICT_BLOCK' => array(
-		0 => true
+		0 => false,
+		1 => true
 		)
 );
 
