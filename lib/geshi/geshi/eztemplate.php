@@ -27,18 +27,18 @@
  ************************************************************************************/
 
 $language_data = array (
-	'LANG_NAME' => 'eZ Publish template',
-	'COMMENT_SINGLE' => array(),
-	'COMMENT_MULTI' => array('{*' => '*}'),
-	'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
-	'QUOTEMARKS' => array("'", '"'),
-	'ESCAPE_CHAR' => '\\',
-	'KEYWORDS' => array(
-    	/// @todo inc symbol must go after include: shuffle groups?
-    	//        the same is valid for mod and module_params, etc...
+    'LANG_NAME' => 'eZ Publish template',
+    'COMMENT_SINGLE' => array(),
+    'COMMENT_MULTI' => array('{*' => '*}'),
+    'CASE_KEYWORDS' => GESHI_CAPS_NO_CHANGE,
+    'QUOTEMARKS' => array("'", '"'),
+    'ESCAPE_CHAR' => '\\',
+    'KEYWORDS' => array(
+        /// @todo inc symbol must go after include: shuffle groups?
+        //        the same is valid for mod and module_params, etc...
 
-    	// Operators
-		1 => array(
+        // Operators
+        1 => array(
 'append',
 'array',
 'array_sum',
@@ -72,7 +72,7 @@ $language_data = array (
 'fetch',
 'module_params' ),
 
-    	3 => array(
+        3 => array(
 'datetime',
 'i18n',
 'l10n',
@@ -249,12 +249,12 @@ $language_data = array (
             ),
 
         // Control structures
-		15 => array(
+        15 => array(
 //Conditional control
 'if',
 'switch' ),
 
-		16 => array( //Looping
+        16 => array( //Looping
 'do',
 'for',
 'foreach',
@@ -262,145 +262,145 @@ $language_data = array (
 
         17 => array( //Deprecated
 'section',
-			),
-		),
-	'SYMBOLS' => array(
-		'|', '(', '[', ')', ']', '=', '/'
-		),
-	'CASE_SENSITIVE' => array(
-		GESHI_COMMENTS => false,
-		1 => false,
-		2 => false,
-		3 => false,
-    	4 => false,
-    	5 => false,
-    	6 => false,
-    	7 => false,
-    	8 => false,
-    	9 => false,
-    	10 => false,
-    	11 => false,
-    	12 => false,
-    	13 => false,
-    	14 => false,
-    	15 => false,
-    	16 => false,
-    	17 => false,
-		),
-	'STYLES' => array(
-		'KEYWORDS' => array(
-			1 => 'color: #0600FF;',		//Operators
-			2 => 'color: #0600FF;',
-			3 => 'color: #0600FF;',
-			4 => 'color: #0600FF;',
-			5 => 'color: #0600FF;',
-			6 => 'color: #0600FF;',
-			7 => 'color: #0600FF;',
-			8 => 'color: #0600FF;',
-			9 => 'color: #0600FF;',
-			10 => 'color: #0600FF;',
-			11 => 'color: #0600FF;',		//Functions
-			12 => 'color: #0600FF;',
-			13 => 'color: #0600FF;',
-			14 => 'color: #0600FF;',
-			15 => 'color: #0600FF;',		//Control structures
-			16 => 'color: #0600FF;',
-			17 => 'color: #0600FF;',
-			),
-		'COMMENTS' => array(
-			'MULTI' => 'color: #808080; font-style: italic;',
-			),
-		'ESCAPE_CHAR' => array(
-			0 => 'color: #ff8800;'
-			),
-		'BRACKETS' => array(
-			0 => 'color: #66cc66;'
-			),
-		'STRINGS' => array(
-			0 => 'color: #dd0000;'
-			),
-		'NUMBERS' => array(
-			0 => 'color: #cc66cc;'
-			),
-		'METHODS' => array(
-			1 => 'color: #006600;',
-			),
-		'SYMBOLS' => array(
-			0 => 'color: #66cc66;'
-			),
-		'SCRIPT' => array(
-			0 => '',
-			1 => ''
-			),
-		'REGEXPS' => array(
-			0 => 'color: #0000bb;',
-			1 => 'color: #007700;',
-			2 => 'color: #dd0000;'
-			)
-		),
-	'URLS' => array(
-		1 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/arrays/{FNAME}',
-		2 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/data_and_information_extraction/{FNAME}',
-		3 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/formatting_and_internationalization/{FNAME}',
-	    4 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/images/{FNAME}',
-	    5 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/logical_operations/{FNAME}',
-	    6 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/mathematics/{FNAME}',
-	    7 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/miscellaneous/{FNAME}',
-	    8 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/strings/{FNAME}',
-	    9 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/urls/{FNAME}',
-	    10 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/variable_and_type_handling/{FNAME}',
+            ),
+        ),
+    'SYMBOLS' => array(
+        '|', '(', '[', ')', ']', '=', '/'
+        ),
+    'CASE_SENSITIVE' => array(
+        GESHI_COMMENTS => false,
+        1 => false,
+        2 => false,
+        3 => false,
+        4 => false,
+        5 => false,
+        6 => false,
+        7 => false,
+        8 => false,
+        9 => false,
+        10 => false,
+        11 => false,
+        12 => false,
+        13 => false,
+        14 => false,
+        15 => false,
+        16 => false,
+        17 => false,
+        ),
+    'STYLES' => array(
+        'KEYWORDS' => array(
+            1 => 'color: #0600FF;',        //Operators
+            2 => 'color: #0600FF;',
+            3 => 'color: #0600FF;',
+            4 => 'color: #0600FF;',
+            5 => 'color: #0600FF;',
+            6 => 'color: #0600FF;',
+            7 => 'color: #0600FF;',
+            8 => 'color: #0600FF;',
+            9 => 'color: #0600FF;',
+            10 => 'color: #0600FF;',
+            11 => 'color: #0600FF;',        //Functions
+            12 => 'color: #0600FF;',
+            13 => 'color: #0600FF;',
+            14 => 'color: #0600FF;',
+            15 => 'color: #0600FF;',        //Control structures
+            16 => 'color: #0600FF;',
+            17 => 'color: #0600FF;',
+            ),
+        'COMMENTS' => array(
+            'MULTI' => 'color: #808080; font-style: italic;',
+            ),
+        'ESCAPE_CHAR' => array(
+            0 => 'color: #ff8800;'
+            ),
+        'BRACKETS' => array(
+            0 => 'color: #66cc66;'
+            ),
+        'STRINGS' => array(
+            0 => 'color: #dd0000;'
+            ),
+        'NUMBERS' => array(
+            0 => 'color: #cc66cc;'
+            ),
+        'METHODS' => array(
+            1 => 'color: #006600;',
+            ),
+        'SYMBOLS' => array(
+            0 => 'color: #66cc66;'
+            ),
+        'SCRIPT' => array(
+            0 => '',
+            1 => ''
+            ),
+        'REGEXPS' => array(
+            0 => 'color: #0000bb;',
+            1 => 'color: #007700;',
+            2 => 'color: #dd0000;'
+            )
+        ),
+    'URLS' => array(
+        1 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/arrays/{FNAME}',
+        2 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/data_and_information_extraction/{FNAME}',
+        3 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/formatting_and_internationalization/{FNAME}',
+        4 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/images/{FNAME}',
+        5 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/logical_operations/{FNAME}',
+        6 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/mathematics/{FNAME}',
+        7 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/miscellaneous/{FNAME}',
+        8 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/strings/{FNAME}',
+        9 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/urls/{FNAME}',
+        10 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/variable_and_type_handling/{FNAME}',
 
-	    11 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/debugging/{FNAME}',
-	    12 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/miscellaneous/{FNAME}',
-	    13 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/variables/{FNAME}',
-	    14 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/visualization/{FNAME}',
+        11 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/debugging/{FNAME}',
+        12 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/miscellaneous/{FNAME}',
+        13 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/variables/{FNAME}',
+        14 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/visualization/{FNAME}',
 
-	    15 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/conditional_control/{FNAME}',
-	    16 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/looping/{FNAME}',
-	    17 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/deprecated/{FNAME}',
+        15 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/conditional_control/{FNAME}',
+        16 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/looping/{FNAME}',
+        17 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/deprecated/{FNAME}',
 
-		),
-	'OOLANG' => false, // because we split on our own to highlight $x.y.z
-	'OBJECT_SPLITTERS' => array(
-		1 => '.'
-		),
-	'REGEXPS' => array(
-	    /**
-	    * variables
-	    * @todo: there should be at most one colon
-	    * @todo: what about sub-elements of arrays?
-	    */
-		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:.]*",
-		/// function parameters names OR variables in let/default
-		1 => array(
+        ),
+    'OOLANG' => false, // because we split on our own to highlight $x.y.z
+    'OBJECT_SPLITTERS' => array(
+        1 => '.'
+        ),
+    'REGEXPS' => array(
+        /**
+        * variables
+        * @todo: there should be at most one colon
+        * @todo: what about sub-elements of arrays?
+        */
+        0 => "[$][a-zA-Z_:][a-zA-Z0-9_:.]*",
+        /// function parameters names OR variables in let/default
+        1 => array(
             GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*[ ]*)=",
             GESHI_REPLACE => '\1',
             GESHI_BEFORE => '',
             GESHI_AFTER => '=',
             GESHI_MODIFIERS => ''
             ),
-		/// strings without quotes used on right hand of assignments
-		2 => array(
-		    GESHI_SEARCH  => "=([ ]*[^$ '\"]+[^ ]*)",
-		    GESHI_REPLACE => '\1',
-		    GESHI_BEFORE => '=',
-		    GESHI_AFTER => '',
-		    GESHI_MODIFIERS => ''
-		)
-		),
-	'STRICT_MODE_APPLIES' => GESHI_MAYBE,
-	'SCRIPT_DELIMITERS' => array(
-	    0 => array(
-			'{literal}' => '{/literal}'
-			),
-		1 => array(
-			'{' => '}'
-			)
-	),
-	'HIGHLIGHT_STRICT_BLOCK' => array(
-		0 => false,
-		1 => true
-		)
+        /// strings without quotes used on right hand of assignments
+        2 => array(
+            GESHI_SEARCH  => "=([ ]*[^$ '\"]+[^ ]*)",
+            GESHI_REPLACE => '\1',
+            GESHI_BEFORE => '=',
+            GESHI_AFTER => '',
+            GESHI_MODIFIERS => ''
+        )
+        ),
+    'STRICT_MODE_APPLIES' => GESHI_MAYBE,
+    'SCRIPT_DELIMITERS' => array(
+        0 => array(
+            '{literal}' => '{/literal}'
+            ),
+        1 => array(
+            '{' => '}'
+            )
+    ),
+    'HIGHLIGHT_STRICT_BLOCK' => array(
+        0 => false,
+        1 => true
+        )
 );
 
 ?>
