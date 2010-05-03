@@ -1,4 +1,12 @@
-- fix parsing of ';' char in ini files
+- fix / improve parsing of ini files:
+ . fix parsing of first line: is it highlited? (eg. not for comments)
+ . fix parsing of ';' char (it's not a symbol)
+ . do not highlight a value when there are errors in the settings name
+ . highlight extra brackets in the settings name
+ . highlight ending chars in value when it has both starting and ending ones
+
+- fix / improve parsing of tpl files
+ . ?
 
 - add a navigation part / top level tab for highligting view
 
