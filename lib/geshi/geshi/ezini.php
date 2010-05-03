@@ -133,7 +133,7 @@ $language_data = array (
             GESHI_REPLACE => '\\1',
             GESHI_MODIFIERS => 'm',
             GESHI_BEFORE => '',
-            GESHI_AFTER => '2'
+            GESHI_AFTER => '\\2'
             ),
         3 => array( // bad line: space after setting name
             GESHI_SEARCH => '^([\w_*@-]*)([\w_*@-][ \t]+)(.*)$',
@@ -168,7 +168,7 @@ $language_data = array (
             GESHI_REPLACE => '\\2',
             GESHI_MODIFIERS => 'm',
             GESHI_BEFORE => '\\1',
-            GESHI_AFTER => ''
+            GESHI_AFTER => '\\3'
             ),
         8 => array( // most likely bad line: space after setting value
             GESHI_SEARCH => '^([^#=]+=)([^ \t\n]+[ \t]+)$',

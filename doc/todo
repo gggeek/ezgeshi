@@ -1,6 +1,15 @@
+- fix parsing of ';' char in ini files
+
 - add a navigation part / top level tab for highligting view
+
+- add support for correctly parsing .htacess, robots.txt in highligting view
+
+- add support for correctly parsing sql depending on db type in highligting view
+
 - add translations for highligting view template
+
 - add windows support for files outside of eZP root
+
 - add override templates in eZ admin interface linking to sources [both admin and admin2]
   . in ini settings view (miss tpl operator to find file from location)
   . in debug output (patch ezdebug)
