@@ -34,8 +34,8 @@ $language_data = array (
 	'QUOTEMARKS' => array("'", '"'),
 	'ESCAPE_CHAR' => '\\',
 	'KEYWORDS' => array(
-    	// @todo inc symbol must go after include: shuffle groups?
-    	// the same is valid for mod and module_params, etc...
+    	/// @todo inc symbol must go after include: shuffle groups?
+    	//        the same is valid for mod and module_params, etc...
 
     	// Operators
 		1 => array(
@@ -333,7 +333,8 @@ $language_data = array (
 			),
 		'REGEXPS' => array(
 			0 => 'color: #0000bb;',
-			1 => 'color: #007700;'
+			1 => 'color: #007700;',
+			2 => 'color: #dd0000;'
 			)
 		),
 	'URLS' => array(
@@ -358,20 +359,33 @@ $language_data = array (
 	    17 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/deprecated/{FNAME}',
 
 		),
-	'OOLANG' => true,
+	'OOLANG' => false, // because we split on our own to highlight $x.y.z
 	'OBJECT_SPLITTERS' => array(
 		1 => '.'
 		),
 	'REGEXPS' => array(
-		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:]*", // variables (todo: there should be at most one colon)
-		//1 => "[a-zA-Z_][a-zA-Z0-9_]*=", // function parameters names OR variables in let
-		1 => array( // function parameters names OR variables in let
+	    /**
+	    * variables
+	    * @todo: there should be at most one colon
+	    * @todo: what about sub-elements of arrays?
+	    */
+		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:.]*",
+		/// function parameters names OR variables in let/default
+		1 => array(
             GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*[ ]*)=",
             GESHI_REPLACE => '\1',
             GESHI_BEFORE => '',
             GESHI_AFTER => '=',
             GESHI_MODIFIERS => ''
-            )
+            ),
+		/// strings without quotes used on right hand of assignments
+		2 => array(
+		    GESHI_SEARCH  => "=([ ]*[^$ '\"]+[^ ]*)",
+		    GESHI_REPLACE => '\1',
+		    GESHI_BEFORE => '=',
+		    GESHI_AFTER => '',
+		    GESHI_MODIFIERS => ''
+		)
 		),
 	'STRICT_MODE_APPLIES' => GESHI_MAYBE,
 	'SCRIPT_DELIMITERS' => array(
