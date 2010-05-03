@@ -366,7 +366,7 @@ $language_data = array (
 		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:]*", // variables (todo: there should be at most one colon)
 		//1 => "[a-zA-Z_][a-zA-Z0-9_]*=", // function parameters names OR variables in let
 		1 => array( // function parameters names OR variables in let
-            GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*)=",
+            GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*[ ]*)=",
             GESHI_REPLACE => '\1',
             GESHI_BEFORE => '',
             GESHI_AFTER => '=',
