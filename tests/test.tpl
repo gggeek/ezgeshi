@@ -6,7 +6,8 @@
 {/literal}
 
 {def $a_var=1
-     $another_var = 2}
+     $another_var = $a_var.a.member[1]
+     $with_arrays = hash( 'hi', 'there', no, quotes )}
 {"a text"}
 {'more text'}
 
@@ -14,11 +15,13 @@
 
 {ldelim}$not_a_var{rdelim}
 
+{whoami}
 {"pipe to operator"|ezurl}
 {'pipe to operator again' | ezurl() | ezurl | ezunknown}
 
 {* bugs below *}
-{include uri='design:.tpl' attribute='this is not the attribute operator!' attr2 = 'val2' attr3='val3' }
+
+{include uri='design:.tpl' attribute='this is not the attribute operator!' attr2 = 'val2' attr3="val3" attr4 = val4}
 
 {foreach $array as $key => $val offset $x limit $y}
     {break}
