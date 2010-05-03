@@ -58,7 +58,9 @@ $language_data = array (
 'remove',
 'repeat',
 'reverse',
-'unique',
+'unique' ),
+
+        2 => array(
 'currentdate',
 'ezhttp',
 'ezhttp_hasvariable',
@@ -68,17 +70,20 @@ $language_data = array (
 'ezpreference',
 'ezsys',
 'fetch',
-'module_params',
+'module_params' ),
 
+    	3 => array(
 'datetime',
 'i18n',
 'l10n',
-'si',
+'si' ),
 
+        4 => array(
 'image',
 'imagefile',
-'texttoimage',
+'texttoimage' ),
 
+        5 => array(
 'and',
 'choose',
 'cond',
@@ -93,8 +98,9 @@ $language_data = array (
 'not',
 'null',
 'or',
-'true',
+'true' ),
 
+        6 => array(
 'abs',
 'ceil',
 'dec',
@@ -108,8 +114,9 @@ $language_data = array (
 'rand',
 'round',
 'sub',
-'sum',
+'sum' ),
 
+        7 => array(
 'action_icon',
 'attribute',
 'classgroup_icon',
@@ -126,9 +133,9 @@ $language_data = array (
 'pdf',
 'roman',
 'topmenu',
-'treemenu',
+'treemenu' ),
 
-
+        8 => array(
 'append',
 'autolink',
 'begins_with',
@@ -166,14 +173,16 @@ $language_data = array (
 'upword',
 'wash',
 'wordtoimage',
-'wrap',
+'wrap' ),
 
+        9 => array(
 'exturl',
 'ezdesign',
 'ezimage',
 'ezroot',
-'ezurl',
+'ezurl' ),
 
+        10 => array(
 'count',
 'float',
 'get_class',
@@ -189,22 +198,24 @@ $language_data = array (
 'is_object',
 'is_set',
 'is_string',
-'is_unset',
-			),
-		// Functions
-        2 => array(
+'is_unset' ),
+
+        // Functions
+        11 => array(
 'debug-accumulator',
 'debug-timing-point',
-'debug-trace',
+'debug-trace' ),
 
+        12 => array(
 'cache-block',
 'fetch_alias',
 'include',
 'ldelim',
 'literal',
 'rdelim',
-'run-once',
+'run-once' ),
 
+        13 => array(
 'append-block',
 'def',
 'default',
@@ -212,8 +223,9 @@ $language_data = array (
 'sequence',
 'set',
 'set-block',
-'undef',
+'undef' ),
 
+    14 => array(
 'attribute_edit_gui',
 'attribute_pdf_gui',
 'attribute_result_gui',
@@ -235,17 +247,20 @@ $language_data = array (
 
 'delimiter' // outside of docs, but still in use
             ),
+
         // Control structures
-		3 => array(
+		15 => array(
 //Conditional control
 'if',
-'switch',
-//Looping
+'switch' ),
+
+		16 => array( //Looping
 'do',
 'for',
 'foreach',
-'while',
-//Deprecated
+'while' ),
+
+        17 => array( //Deprecated
 'section',
 			),
 		),
@@ -257,12 +272,40 @@ $language_data = array (
 		1 => false,
 		2 => false,
 		3 => false,
+    	4 => false,
+    	5 => false,
+    	6 => false,
+    	7 => false,
+    	8 => false,
+    	9 => false,
+    	10 => false,
+    	11 => false,
+    	12 => false,
+    	13 => false,
+    	14 => false,
+    	15 => false,
+    	16 => false,
+    	17 => false,
 		),
 	'STYLES' => array(
 		'KEYWORDS' => array(
 			1 => 'color: #0600FF;',		//Operators
-			2 => 'color: #0600FF;',		//Functions
-			3 => 'color: #0600FF;',		//Control structures
+			2 => 'color: #0600FF;',
+			3 => 'color: #0600FF;',
+			4 => 'color: #0600FF;',
+			5 => 'color: #0600FF;',
+			6 => 'color: #0600FF;',
+			7 => 'color: #0600FF;',
+			8 => 'color: #0600FF;',
+			9 => 'color: #0600FF;',
+			10 => 'color: #0600FF;',
+			11 => 'color: #0600FF;',		//Functions
+			12 => 'color: #0600FF;',
+			13 => 'color: #0600FF;',
+			14 => 'color: #0600FF;',
+			15 => 'color: #0600FF;',		//Control structures
+			16 => 'color: #0600FF;',
+			17 => 'color: #0600FF;',
 			),
 		'COMMENTS' => array(
 			'MULTI' => 'color: #808080; font-style: italic;',
@@ -294,9 +337,26 @@ $language_data = array (
 			)
 		),
 	'URLS' => array(
-		1 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=31',
-		2 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=34',
-		3 => 'http://ez.no/doc/content/advancedsearch?SearchText={FNAME}&SearchContentClassID=23',
+		1 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/arrays/{FNAME}',
+		2 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/data_and_information_extraction/{FNAME}',
+		3 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/formatting_and_internationalization/{FNAME}',
+	    4 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/images/{FNAME}',
+	    5 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/logical_operations/{FNAME}',
+	    6 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/mathematics/{FNAME}',
+	    7 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/miscellaneous/{FNAME}',
+	    8 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/strings/{FNAME}',
+	    9 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/urls/{FNAME}',
+	    10 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_operators/variable_and_type_handling/{FNAME}',
+
+	    11 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/debugging/{FNAME}',
+	    12 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/miscellaneous/{FNAME}',
+	    13 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/variables/{FNAME}',
+	    14 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_functions/visualization/{FNAME}',
+
+	    15 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/conditional_control/{FNAME}',
+	    16 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/looping/{FNAME}',
+	    17 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/deprecated/{FNAME}',
+
 		),
 	'OOLANG' => true,
 	'OBJECT_SPLITTERS' => array(
@@ -304,8 +364,8 @@ $language_data = array (
 		),
 	'REGEXPS' => array(
 		0 => "[$][a-zA-Z_:][a-zA-Z0-9_:]*", // variables (todo: there should be at most one colon)
-		1 => "[a-zA-Z_][a-zA-Z0-9_]*=", // function parameters names OR variables in let
-		1 => array(
+		//1 => "[a-zA-Z_][a-zA-Z0-9_]*=", // function parameters names OR variables in let
+		1 => array( // function parameters names OR variables in let
             GESHI_SEARCH  => "([a-zA-Z_][a-zA-Z0-9_]*)=",
             GESHI_REPLACE => '\1',
             GESHI_BEFORE => '',

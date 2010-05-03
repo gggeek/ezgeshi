@@ -6,7 +6,8 @@
  . highlight ending chars in value when it has both starting and ending ones
 
 - fix / improve parsing of tpl files
- . ?
+ . tpl operators after a | are ignored
+ . parameter names within functions are still parsed as operators
 
 - add a navigation part / top level tab for highligting view
 
