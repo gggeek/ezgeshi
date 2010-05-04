@@ -5,15 +5,23 @@
  * Author: Jan Borsodi (jb@ez.no)
  * Author: G Giunta (gg@ez.no)
  * Copyright: (c) 2005 Jan Borsodi
- * Release Version: 1.2.0
+ * Release Version: 1.3.0
  * SVN Revision Version: $Id: $
  * Date Started: 2005/17/01
  * Last Modified: $Date: 2005/17/01 10:14:00 $
  *
- * eZ template language file for GeSHi.
+ * eZ Publish template language file for GeSHi.
  *
  * CHANGES
  * -------
+ * 2010/05/04 (1.3.0)
+ *  -  Back to multiple keyword classes, as links to online docs using query string do not work
+ *  -  do not highlight literal blocks
+ *  -  do highlight string literals without quotes on right hand of assignments
+ *  -  do not highlight keywords when a space is left after bracket
+ *  -  do not highlight as keyord a function parameter named as a keyword, if followed directly by equal sign
+ *  -  highlight without linking the known parameters for control structure functions
+ *  -  add missing keyword: case
  * 2008/02/23 (1.2.0)
  *  -  Modified links to help pages
  *  -  shrank keywords to 3 classes, as in the eZ Publish 4 online docs. Took keywords from there
@@ -21,9 +29,12 @@
  * 2004/11/27 (1.0.0)
  *  -  Initial Release
  *
- * TODO
- * ----
- *
+ * TODO (updated 2010/05/04)
+ * -------------------------
+ *  -  see the test.tpl file, plus @todo tags later on
+ *  -  fix link for keywords that are different depending on context (eg. break, case)
+ *  -  color string literals used without quotes within hashes/arrays
+ *  -  the literal tags temselves should not shown in black
  ************************************************************************************/
 
 $language_data = array (
@@ -252,7 +263,8 @@ $language_data = array (
         15 => array(
 //Conditional control
 'if',
-'switch' ),
+'switch',
+'case' ),
 
         16 => array( //Looping
 'do',
@@ -262,6 +274,11 @@ $language_data = array (
 
         17 => array( //Deprecated
 'section',
+            ),
+
+        18 => array( 'as', 'offset', 'max', 'sequence', 'reverse', 'to', 'match', 'in' ), // control structures attributes
+
+        19 => array( // left for user-added template operators and functions )
             ),
         ),
     'SYMBOLS' => array(
@@ -286,6 +303,8 @@ $language_data = array (
         15 => false,
         16 => false,
         17 => false,
+        18 => false,
+        19 => false,
         ),
     'STYLES' => array(
         'KEYWORDS' => array(
@@ -306,6 +325,8 @@ $language_data = array (
             15 => 'color: #0600FF;',        //Control structures
             16 => 'color: #0600FF;',
             17 => 'color: #0600FF;',
+            18 => 'color: #0600FF;', // foreach attributes
+            19 => 'color: #0600FF;',
             ),
         'COMMENTS' => array(
             'MULTI' => 'color: #808080; font-style: italic;',
@@ -359,8 +380,12 @@ $language_data = array (
         16 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/looping/{FNAME}',
         17 => 'http://ez.no/doc/ez_publish/technical_manual/4_x/reference/template_control_structures/deprecated/{FNAME}',
 
+        18 => '',
+
+        19 => '',
+
         ),
-    'OOLANG' => false, // because we split on our own to highlight $x.y.z
+    'OOLANG' => false, // because we split on our own to better highlight $x.y.z
     'OBJECT_SPLITTERS' => array(
         1 => '.'
         ),
@@ -400,7 +425,22 @@ $language_data = array (
     'HIGHLIGHT_STRICT_BLOCK' => array(
         0 => false,
         1 => true
-        )
+        ),
+    'PARSER_CONTROL' => array(
+        'KEYWORDS' => array(
+            /**
+            * standard set without >, as | is transformed into <PIPE>
+            * also with '{ ' removed, to catch frequent errors
+            * @todo it should be '{ +', but it seems too gredy...
+            */
+            'DISALLOWED_BEFORE' => '(?<![a-zA-Z0-9$_\\|\\#;|^&\'"]|\{ )',
+            /**
+            * standard set plus equal sign
+            * @todo should also avoid matching '{include attribute = }'
+            */
+            'DISALLOWED_AFTER' => '(?![a-zA-Z0-9_\|%\\-&;\'"=])'
+        ),
+    ),
 );
 
 ?>

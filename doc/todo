@@ -1,18 +1,12 @@
+- add ant build file
+
 - update README file w. new view
 
 - allow loading geshi from a different dir
 
-- fix / improve parsing of ini files:
- . fix parsing of first line: is it highlited? (eg. not for comments)
- . fix parsing of ';' char (it's not a symbol)
- . do not highlight a value when there are errors in the settings name
- . highlight extra brackets in the settings name
- . highlight ending chars in value when it has both starting and ending ones
+- fix / improve parsing of ini files (see TODO in language file itself)
 
-- fix / improve parsing of tpl files
- . tpl operators after a | are ignored (they are ok if there's a whitespace in between)
- . parameter names within functions are still parsed as operators (eg. {node_view_full attribute=$x} )
- . distinguish (for links to manual) operators that are different depending on context (eg. break for strings and for foreach)
+- fix / improve parsing of tpl files (see TODO in language file itself)
 
 - add support for template operators and functions added by extensions
 
