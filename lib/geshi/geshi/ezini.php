@@ -6,7 +6,9 @@
  * Author: ggiunta (gg@ez.no)
  * Copyright: (c) 2005 deguix
  * Release Version: 1.3.0
+ * SVN Revision Version: $Id$
  * Date Started: 2005/03/27
+ * License: GNU General Public License v2.0
  *
  * eZ Publish INI language file for GeSHi.
  *

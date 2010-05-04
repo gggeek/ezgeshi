@@ -3,12 +3,12 @@
  * eztemplate.php
  * ----------
  * Author: Jan Borsodi (jb@ez.no)
- * Author: G Giunta (gg@ez.no)
+ * Author: G. Giunta (gg@ez.no)
  * Copyright: (c) 2005 Jan Borsodi
  * Release Version: 1.3.0
- * SVN Revision Version: $Id: $
+ * SVN Revision Version: $Id$
  * Date Started: 2005/17/01
- * Last Modified: $Date: 2005/17/01 10:14:00 $
+ * License: GNU General Public License v2.0
  *
  * eZ Publish template language file for GeSHi.
  *
