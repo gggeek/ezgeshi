@@ -2,19 +2,13 @@
 
 - update README file w. new view
 
-- allow loading geshi from a different dir
+- add a navigation part / top level tab for highligting view
+
+- add support for template operators and functions added by extensions
 
 - fix / improve parsing of ini files (see TODO in language file itself)
 
 - fix / improve parsing of tpl files (see TODO in language file itself)
-
-- add support for template operators and functions added by extensions
-
-- add a navigation part / top level tab for highligting view
-
-- add support for correctly parsing .htacess, robots.txt in highligting view
-
-- add support for correctly parsing sql depending on db type in highligting view
 
 - add translations for highligting view template
 
@@ -23,3 +17,4 @@
 - add override templates in eZ admin interface linking to sources [both admin and admin2]
   . in ini settings view (miss tpl operator to find file from location)
   . in debug output (patch ezdebug)
+  . in other places?
