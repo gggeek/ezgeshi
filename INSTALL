@@ -1,0 +1,16 @@
+1 - activate the extension following the standard eZ Publish procedures
+    (remember to regenerate the ezp_extension.php autoload file)
+
+2 - for highlighting of source code in the Online Editor, many new styles are
+    added for the "literal" tag.
+	Edit the settings/content.ini.append.php file to remove unused languages
+	if you find the list too long
+
+3 - grant permissions on the geshi/view_ezpublish_source or geshi/view_any_source
+    functions to those roles that will be allowed to see highlighted files via
+    the geshi/highlight view.
+	NB: the second one allows highlighting of ANY file on the server!
+
+To test access to the geshi/highlight view, use an url like the following ones:
+http://ezp/index.php/my_site_admin/geshi/highlight/design/standard/templates/node/view/full.tpl
+http://ezp/index.php/my_site_admin/geshi/highlight/settings/override/site.ini.append.php

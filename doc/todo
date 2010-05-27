@@ -1,10 +1,10 @@
 - add ant build file
 
-- update README file w. new view
+- add a custom navigation part / top level tab for highligting view
 
-- add a navigation part / top level tab for highligting view
+- add a view to select a file to highlight (via typing file name or browsing files)
 
-- add support for template operators and functions added by extensions
+- add support for highlighting template operators and functions added by extensions
 
 - fix / improve parsing of ini files (see TODO in language file itself)
 
