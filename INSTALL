@@ -3,13 +3,16 @@
 
 2 - for highlighting of source code in the Online Editor, many new styles are
     added for the "literal" tag.
-	Edit the settings/content.ini.append.php file to remove unused languages
-	if you find the list too long
+    Edit the settings/content.ini.append.php file to remove unused languages
+    if you find the list too long
 
-3 - grant permissions on the geshi/view_ezpublish_source or geshi/view_any_source
+3 - optional: grant permissions on the geshi/view_ezpublish_source or geshi/view_any_source
     functions to those roles that will be allowed to see highlighted files via
     the geshi/highlight view.
-	NB: the second one allows highlighting of ANY file on the server!
+    NB: to see highlited content in rich text or via the template operator ezsh
+    there is no need to set any specific permissions
+    NBB: the second permisison allows highlighting of ANY file on the server !!!
+         We strongly recommend using open_basedir limitation in php.ini along with it
 
 To test access to the geshi/highlight view, use an url like the following ones:
 http://ezp/index.php/my_site_admin/geshi/highlight/design/standard/templates/node/view/full.tpl

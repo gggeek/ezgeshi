@@ -38,7 +38,7 @@ class eZSH
                 $error = $geshi->error();
                 if ( $error != false )
                 {
-                    eZDebug::writeWarning( 'In tpl operator ezsh: ' . strip_tags( $error ) );
+                    eZDebug::writeWarning( 'In tpl operator ezsh: ' . strip_tags( $error ), __METHOD__ );
                 }
             } break;
         }

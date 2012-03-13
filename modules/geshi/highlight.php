@@ -7,24 +7,43 @@
 * @license
 */
 
+$Module = $Params['Module'];
 $orig_filename = implode( '/', $Params['Parameters'] );
 $filename = $orig_filename;
 $language = isset( $Params['language'] ) ? $Params['language'] : '';
+
+$ezpath = str_replace( '\\', '/', eZSys::rootDir() );
 
 // start assuming a relative path
 /// @todo windows support: local paths, unc
 if ( $filename[0] != '/' )
 {
-    $filename = eZSys::rootDir() . '/' . $filename;
+    $filename = $ezpath . '/' . $filename;
 }
+$filepath = str_replace( '\\', '/', realpath( $filename ) );
+
 // safety measure: check if file is not within ez root dir, if it is not he needs
 // to have a specific permission
 $user = eZUser::currentUser();
 if ( !$user->hasAccessTo( 'geshi', 'view_any_source' ) )
 {
-    $ezpath = eZSys::rootDir();
-    $filepath = realpath( $filename );
     if ( strpos( $ezpath, $filepath ) !== 0 )
+    {
+        return $Module->handleError( eZError::KERNEL_ACCESS_DENIED, 'kernel' );
+    }
+}
+
+// safety measure 2: check blacklisted files / dirs
+$ini = eZINI::instance( 'ezsh.ini' );
+foreach( $ini->variable( 'GeneralSettings', 'Blacklist' ) as $forbiddenfile )
+{
+    if ( $forbiddenfile[0] != '/' )
+    {
+        $forbiddenfile = $ezpath . '/' . $forbiddenfile;
+    }
+    $forbiddenfile = str_replace( '#', '\#', $forbiddenfile );
+
+    if ( preg_match( "#^$forbiddenfile$#", $filepath ) )
     {
         return $Module->handleError( eZError::KERNEL_ACCESS_DENIED, 'kernel' );
     }
@@ -77,7 +96,7 @@ if ( is_file( $filename ) )
     if ( $error != false )
     {
         $errormsg = strip_tags( $error );
-        eZDebug::writeWarning( 'In view geshi/highligt: ' . $errormsg );
+        eZDebug::writeWarning( 'In view geshi/highligt: ' . $errormsg, __FILE__ );
     }
 }
 else
