@@ -1,0 +1,24 @@
+extension:
+    name: ezsh
+
+version:
+    major: 1
+    minor: 4
+    release: 0
+
+ezp:
+    version:
+        major: 4
+        minor: 0
+        release: 7
+
+svn:
+    url: http://svn.projects.ez.no/ezgeshi/trunk/extension/ezsh/
+
+create:
+    tarball: no
+    zip: yes
+    doxygen_doc: yes
+
+releasenr:
+    separator: .

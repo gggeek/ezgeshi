@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name>eZ Geshi (a.k.a. eZSH, a.k.a. eZ Syntax Highlighter)</name>
+        <version>1.4-dev</version>
+        <copyright>Copyright (C) 2005-2012 Lukasz Serwatka</copyright>
+        <license>GNU General Public License v2.0</license>
+    </metadata>
+
+    <dependencies>
+        <extends>
+        </extends>
+        <requires>
+        </requires>
+    </dependencies>
+
+</software>
