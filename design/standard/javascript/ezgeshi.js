@@ -7,8 +7,8 @@
     $(document).ready(
         function()
         {
-            // replace all links to visual/templateview with links to geshi template view
-            $('a[href*="/visual/templateview/"]').each(
+            // replace all debug links to visual/templateview with links to geshi template view
+            $('#debug a[href*="/visual/templateview/"]').each(
                 function( index )
                 {
                     var href = $(this).attr( "href" );
@@ -19,7 +19,7 @@
 
             /*
             // replace all links to visual/edit with links to geshi template view
-            $('a[href*="/visual/templateedit/"]').each(
+            $('a[#debug href*="/visual/templateedit/"]').each(
                 function( index )
                 {
                     var href = $(this).attr( "href" );
