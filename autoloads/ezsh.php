@@ -36,9 +36,9 @@ class eZSH
                 $geshi = new GeSHi( $source, $language );
                 $operatorValue = $geshi->parse_code();
                 // temp fix for weird results from ezini lang results
-                if ( substr( $operatorValue, 0, 124 ) == '<pre class="ezini" style="font-family:monospace;">span style="background-color: yellow;"> <span style="">&#91;</span></span>')
+                if ( substr( $operatorValue, 0, 90 ) == '<pre class="ezini" style="font-family:monospace;">span style="background-color: yellow;"> ')
                 {
-                    $operatorValue = '<pre class="ezini" style="font-family:monospace;"><span style="">&#91;</span>' . substr( $operatorValue, 124 );
+                    $operatorValue = '<pre class="ezini" style="font-family:monospace;"><span>' . substr( $operatorValue, 90 );
                 }
                 $error = $geshi->error();
                 if ( $error != false )
