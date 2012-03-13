@@ -92,6 +92,11 @@ if ( is_file( $filename ) )
     }
 
     $highlighted = $geshi->parse_code();
+    // temp fix for weird results from ezini lang results
+    if ( substr( $highlighted, 0, 124 ) == '<pre class="ezini" style="font-family:monospace;">span style="background-color: yellow;"> <span style="">&#91;</span></span>')
+    {
+        $highlighted = '<pre class="ezini" style="font-family:monospace;"><span style="">&#91;</span>' . substr( $highlighted, 124 );
+    }
     $error = $geshi->error();
     if ( $error != false )
     {
