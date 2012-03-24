@@ -25,27 +25,40 @@
                 }
             )
 
-            // @bug will not work if in non-vhost mode but with no index.php in path
-            // @bug does not work with default (hidden) siteaccess
-/// @todo search for known links in the #debug div or in the page to find out the correct setup
+            // since this js is not passed the correct path from template, we have
+            // to find out what the prefix is to build eZ urls from scratch
+            // And it has to work in all possible configs)
             var prefix = '';
-            if ( document.location.pathname.indexOf( 'index.php' ) != -1 )
+            if ( $('#debug #clearcache').length > 0 )
             {
-                var pos = document.location.pathname.indexOf( '/', document.location.pathname.indexOf( 'index.php' ) + 10 );
-                if ( pos == -1 )
+                prefix = $('#debug #clearcache').attr( "action" ).replace( '/setup/cachetoolbar', '' );
+            }
+            else if ( $('#debug #templateusage' ).length > 0 )
+            {
+                prefix = $('#debug #templateusage tr:nth-child(2) td:nth-child(2) a').attr( "href" ).replace( /\/visual\/templateview\/.*/, '' );
+            }
+            else
+            {
+                // @bug will not work if in non-vhost mode but with no index.php in path
+                // @bug does not work with default (hidden) siteaccess
+                if ( document.location.pathname.indexOf( 'index.php' ) != -1 )
                 {
-                    // no sa
-                    prefix = document.location.pathname.substr( 0, document.location.pathname.indexOf( 'index.php' ) + 9 );
-                }
-                else
-                {
-                    // with sa
-                    prefix = document.location.pathname.substr( 0, pos );
+                    var pos = document.location.pathname.indexOf( '/', document.location.pathname.indexOf( 'index.php' ) + 10 );
+                    if ( pos == -1 )
+                    {
+                        // no sa
+                        prefix = document.location.pathname.substr( 0, document.location.pathname.indexOf( 'index.php' ) + 9 );
+                    }
+                    else
+                    {
+                        // with sa
+                        prefix = document.location.pathname.substr( 0, pos );
+                    }
                 }
             }
 
             // add links to included php files list (from ez 2012.3 / 4.7)
-            // @todo we should remove to remove path to eZ from the link
+            // @todo (!important) we should remove to remove path to eZ from the link
             $('#debug_includes td').each(
                 function( index )
                 {
