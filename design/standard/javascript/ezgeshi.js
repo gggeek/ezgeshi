@@ -1,47 +1,47 @@
 /**
- Utilities for usage with the ezgeshi extension
- Requires JQuery
+ * Utilities for usage with the ezgeshi extension:
+ * . patch the debug output reporort to add links to source of files mentioned
+ *
+ * Requires JQuery
  */
+
 (function( $ )
 {
     $(document).ready(
         function()
         {
-            // replace all debug links to visual/templateview with links to geshi template view
-            // can not be done, since we don't have the complete path to the template
-            /*$('#debug a[href*="/visual/templateview/"]').each(
+            // avoid slowing down production sites
+            if ( $('#debug').length == 0 )
+            {
+                return;
+            }
+
+            // complement all links to visual/edit with links to geshi template view
+            // (added on the column showing "template loaded"
+            $('#debug #templateusage td:nth-child(4)').each(
                 function( index )
                 {
-                    var href = $(this).attr( "href" );
-                    var newHref = href.replace( '/visual/templateview/', '/geshi/highlight/' );
-                    $(this).attr( "href", newHref );
-                }
-            )*/
-
-
-            // replace all links to visual/edit with links to geshi template view
-            $('#debug a[href*="/visual/templateedit/"]').each(
-                function( index )
-                {
-                    $(this).attr( "href", $(this).attr( "href" ).replace( '/visual/templateedit/', '/geshi/highlight/' ) );
+                    $(this).html( '<a href="' + $(this).parent().parent().find( 'a[href*="/visual/templateedit/"]' ).attr( "href" ).replace( '/visual/templateedit/', '/geshi/highlight/' ) + '" title="View template">' + $(this).html() + '</a>' );
                 }
             )
-            // and make this apparent in the "edit" buttons title in debug table
-            $('#debug a[ href*="/geshi/highlight/"] > img').each(
-                function( index )
-                {
-                    $(this).attr( "alt", "View template" );
-                    $(this).attr( "title", "View template" );
-                    $(this).attr( "src", $(this).attr( "src" ).replace( '/edit.gif', '/find.png' ) );
-                }
-            )
-            $("#templateusage th:contains('Edit')").html('View');
 
             // @bug will not work if in non-vhost mode but with no index.php in path
+            // @bug does not work with default (hidden) siteaccess
+/// @todo search for known links in the #debug div or in the page to find out the correct setup
             var prefix = '';
             if ( document.location.pathname.indexOf( 'index.php' ) != -1 )
             {
-                prefix = document.location.pathname.substr( 0, document.location.pathname.indexOf( '/', document.location.pathname.indexOf( 'index.php' ) + 10 ) );
+                var pos = document.location.pathname.indexOf( '/', document.location.pathname.indexOf( 'index.php' ) + 10 );
+                if ( pos == -1 )
+                {
+                    // no sa
+                    prefix = document.location.pathname.substr( 0, document.location.pathname.indexOf( 'index.php' ) + 9 );
+                }
+                else
+                {
+                    // with sa
+                    prefix = document.location.pathname.substr( 0, pos );
+                }
             }
 
             // add links to included php files list (from ez 2012.3 / 4.7)
