@@ -29,6 +29,7 @@ CONFIGURATION:
     there is no need to set any specific permissions
     NBB: the second permisison allows highlighting of ANY file on the server !!!
          We strongly recommend using open_basedir limitation in php.ini along with it
+         (also to make it work, AllowAbsolutePaths has to enabled in ezsh.ini)
 
     To test access to the geshi/highlight view, use an url like the following ones:
     http://ezp/index.php/my_site_admin/geshi/highlight/design/standard/templates/node/view/full.tpl
@@ -38,11 +39,18 @@ CONFIGURATION:
 4 - to enhance the Debug Output:
 
     eZGeshi enhances the standard debug output of eZ Publish by adding links to
-    the source coe of all templates and php files that are mentioned in it.
+    the source code of all templates and php files that are mentioned in it.
     To enable this functionality, edit the design.ini file within eZGeshi and
-    uncomment the FrontendJavaScriptList/BackendJavaScriptList lines.
+    uncomment the FrontendJavaScriptList/BackendJavaScriptList lines; also make
+    sure the user who will use this has been granted access permissions on the
+    geshi/view_ezpublish_source view.
 
     NB: the enhancement of debug output is done via jQuery. If you are not using
     jQuery in your website, enabling this will have a (slight) impact on
     performances, as the jQuery library will have to be loaded. It is recommended
     in such case not to enable this configuration for production servers.
+
+    If you are displaying the new "list of included php files" in the debug output,
+    in order to make work the links to highlight those file, you will have to set
+    AllowAbsolutePaths to enabled in ezsh.ini.
+    Take care about the security implications of doing this.

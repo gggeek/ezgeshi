@@ -14,16 +14,24 @@ $language = isset( $Params['language'] ) ? $Params['language'] : '';
 
 $ezpath = str_replace( '\\', '/', eZSys::rootDir() );
 
-// start assuming a relative path
-/// @todo windows support: local paths, unc
-if ( $filename[0] != '/' )
+$ini = eZINI::instance( 'ezsh.ini' );
+
+// start assuming a relative path, unless it looks like an absolute one
+/// @todo windows support: unc paths
+if ( $filename[0] != '/' && !preg_match( '#^[a-zA-Z]:[/\\\\]#', $filename ) )
 {
     $filename = $ezpath . '/' . $filename;
 }
+else if ( $ini->variable( 'GeneralSettings', 'AllowAbsolutePaths' ) !== 'enabled' )
+{
+    // safety measure: only allow access via absolute path if configured so
+    return $Module->handleError( eZError::KERNEL_ACCESS_DENIED, 'kernel' );
+}
+
 $filepath = str_replace( '\\', '/', realpath( $filename ) );
 
-// safety measure: check if file is not within ez root dir, if it is not he needs
-// to have a specific permission
+// safety measure: check if file is not within ez root dir, if it is not user
+// needs to have a specific permission
 $user = eZUser::currentUser();
 if ( !$user->hasAccessTo( 'geshi', 'view_any_source' ) )
 {
@@ -34,10 +42,9 @@ if ( !$user->hasAccessTo( 'geshi', 'view_any_source' ) )
 }
 
 // safety measure 2: check blacklisted files / dirs
-$ini = eZINI::instance( 'ezsh.ini' );
 foreach( $ini->variable( 'GeneralSettings', 'Blacklist' ) as $forbiddenfile )
 {
-    if ( $forbiddenfile[0] != '/' )
+    if ( $forbiddenfile[0] != '/' && !preg_match( '#^[a-zA-Z]:[/\\\\]#', $forbiddenfile ) )
     {
         $forbiddenfile = $ezpath . '/' . $forbiddenfile;
     }
