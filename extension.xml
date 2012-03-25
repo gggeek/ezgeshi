@@ -2,7 +2,7 @@
 <software>
     <metadata>
         <name>eZ Geshi (a.k.a. eZSH, a.k.a. eZ Syntax Highlighter)</name>
-        <version>1.4-dev</version>
+        <version>1.4.1-dev</version>
         <copyright>Copyright (C) 2005-2012 Lukasz Serwatka</copyright>
         <license>GNU General Public License v2.0</license>
     </metadata>

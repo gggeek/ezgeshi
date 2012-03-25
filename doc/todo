@@ -10,8 +10,6 @@
 
 - add translations for highligting view template
 
-- add windows support for files outside of eZP root
-
 - add override templates in eZ admin interface linking to sources [both admin and admin2]
   . in visual/templateview page (is it doable?)
   . in ini settings view (miss tpl operator to find file from location)
