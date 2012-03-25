@@ -12,10 +12,10 @@ DesignExtensions[]=ezsh
 # in production websites
 
 # eZP 4.3.0 and later
-#FrontendJavaScriptList[]=ezjsc::jquery
-#FrontendJavaScriptList[]=ezgeshi.js
+FrontendJavaScriptList[]=ezjsc::jquery
+FrontendJavaScriptList[]=ezgeshi.js
 # (for admin interface design, we can assume jQuery is already loaded)
-#BackendJavaScriptList[]=ezgeshi.js
+BackendJavaScriptList[]=ezgeshi.js
 
 # eZP 4.2.0 and earlier
 # Make sure you have jQuery loaded, either via ezjscore or some other means
