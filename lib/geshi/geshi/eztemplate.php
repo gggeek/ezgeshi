@@ -6,7 +6,6 @@
  * Author: G. Giunta (gg@ez.no)
  * Copyright: (c) 2005 Jan Borsodi
  * Release Version: 1.3.0
- * SVN Revision Version: $Id$
  * Date Started: 2005/17/01
  * License: GNU General Public License v2.0
  *

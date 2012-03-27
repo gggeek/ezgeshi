@@ -2,9 +2,8 @@
 /**
 * View used to highlight any file (optionally: only within the eZP root diir)
 * @author G. Giunta
-* @version $Id$
-* @copyright (c) G. Giunta 2010
-* @license
+* @copyright (c) G. Giunta 2010-2012
+* @license code licensed under the GPL License: see README
 */
 
 $Module = $Params['Module'];
