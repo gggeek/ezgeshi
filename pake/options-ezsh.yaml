@@ -13,7 +13,7 @@ ezp:
         release: 7
 
 git:
-    url: https://gggeek@github.com/gggeek/ezgeshi.git
+    url: https://github.com/gggeek/ezgeshi.git
 
 create:
     tarball: no
