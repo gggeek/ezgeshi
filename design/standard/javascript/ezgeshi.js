@@ -1,6 +1,6 @@
 /**
  * Utilities for usage with the ezgeshi extension:
- * . patch the debug output reporort to add links to source of files mentioned
+ * . patch the debug output report to add links to source of files mentioned
  *
  * Requires JQuery
  */
@@ -92,6 +92,7 @@
                     var file = $(this).next().find( 'pre' ).html().match( /@ .+:[0-9]+\[[0-9]+\]/ );
                     if ( file != null )
                     {
+                        var msg = $(this).next().find( 'pre' );
                         file = file[0].substr( 2, file[0].indexOf( ':' ) -2 );
                         msg.html( msg.html().replace( file, '<a href="' + prefix + '/geshi/highlight/' + file + '">' + file + '</a>' ) );
                     }
