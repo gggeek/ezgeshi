@@ -89,14 +89,36 @@
             $('#debug table[title="Table for actual debug output, shows notices, warnings and errors"] tr[class="error"]').each(
                 function( index )
                 {
-                    var file = $(this).next().find( 'pre' ).html().match( /@ .+:[0-9]+\[[0-9]+\]/ );
+                    var file = $(this).next().find( 'pre' ).html().match( /@ .+(\\|:[0-9]+)\[[0-9]+\]/ );
                     if ( file != null )
                     {
                         var msg = $(this).next().find( 'pre' );
-                        file = file[0].substr( 2, file[0].indexOf( ':' ) -2 );
+                        if ( file[0].indexOf( ':' ) > 0 )
+                        {
+                            file = file[0].substr( 2, file[0].indexOf( ':' ) -2 );
+                        }
+                        else
+                        {
+                            file = file[0].substr( 2, file[0].indexOf( '\\' ) -2 );
+                        }
                         msg.html( msg.html().replace( file, '<a href="' + prefix + '/geshi/highlight/' + file + '">' + file + '</a>' ) );
                     }
                 }
+            )
+
+            // and warning messages that mention php files
+            $('#debug table[title="Table for actual debug output, shows notices, warnings and errors"] tr[class="warning"]').each(
+            function( index )
+            {
+                var file = $(this).next().find( 'pre' ).html().match( / in .+\.php on line/ );
+                if ( file != null )
+                {
+                    var msg = $(this).next().find( 'pre' );
+                    /// @todo take care about urls that contain both /index.php and file.php at the end
+                    file = file[0].substr( 4, file[0].length -12 );
+                    msg.html( msg.html().replace( file, '<a href="' + prefix + '/geshi/highlight/' + file + '">' + file + '</a>' ) );
+                }
+            }
             )
         }
     );
